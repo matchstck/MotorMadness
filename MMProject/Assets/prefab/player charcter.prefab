@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 4777319251178385716}
   - component: {fileID: 4777319251178385721}
   - component: {fileID: 4777319251178385720}
+  - component: {fileID: 4086649641200060813}
   m_Layer: 0
   m_Name: player charcter
   m_TagString: Untagged
@@ -158,6 +159,36 @@ MonoBehaviour:
   speed: 10
   maxGroundDistance: 1.5
   allowDoubleJump: 0
+--- !u!114 &4086649641200060813
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4303073188912876761}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d188d7502aa3cd649b8cf82791f857e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
+  maxHealth: 100
+  timer: 0
+  painEffect: {fileID: 0}
+  painTimer: 0
+  damageScaleNormal: 1
+  damageScaleElite1: 1.5
+  damageScaleElite2: 3
+  respawnDelay: 3
+  respawn: {fileID: 0}
+  playerIsAlive: 0
+  healthText: {fileID: 0}
+  deathText: {fileID: 0}
+  respawnText: {fileID: 0}
+  deathPanel: {fileID: 0}
+  pc: {fileID: 0}
+  onPlayerDies: {fileID: 0}
+  onPlayerResawns: {fileID: 0}
 --- !u!1 &4777319251546252447
 GameObject:
   m_ObjectHideFlags: 0
