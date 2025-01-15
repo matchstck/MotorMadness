@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class LAdderGod : MonoBehaviour
 {
-
+    
     public Transform chController;
     bool inside = false;
     public float speedUpDown = 3.2f;
@@ -31,6 +31,14 @@ public class LAdderGod : MonoBehaviour
     
     void Update()
     {
+        if(inside == true)
+        {
+            FPSInput.m_gravity = 0;
+        }
+        else
+        {
+           FPSInput.m_gravity = -9.8f;
+        }
         if(inside == true && Input.GetKey("w"))
         {
             chController.transform.position += Vector3.up /
