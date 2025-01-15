@@ -19,7 +19,6 @@ public class BasicInteract : MonoBehaviour
     private Ray g_ray = new Ray();
     public RaycastHit hitObject;
     public LayerMask layerToHit;
-    //public GraphicRaycaster raycaster;
     public float rayLength = 5f; // Adjust this if you want to adjust the 'click to grab' distance
     public Image CrosshairDot;
 
@@ -74,13 +73,15 @@ public class BasicInteract : MonoBehaviour
 
     void Update()
     {
+        /*
         if (Input.GetKeyUp(KeyCode.Alpha1)) // DIRTY HACK! JUST TESTS DROPPING/USING AN ITEM.
         {
             int itemToDiscard = 0;
             playerInventory.RemoveItem(itemToDiscard);
 
         }
-
+        */
+        
         if (carriedItem != null) // IF YOU ARE CARRYING SOMETHING, CHECKS FOR AN INPUT TO DROP IT.
         {
             if (Input.GetKeyUp(dropKey))
@@ -177,11 +178,6 @@ public class BasicInteract : MonoBehaviour
                 }
                 else if (targetIsCollctable)
                 {
-                    if (interactiveObject.GetComponent<PickupThing>().isScoreItem)
-                    {
-                        interactiveObject.GetComponent<PickupThing>().AddScoreFromPickup();
-                    }
-                    
                     if (useInventory)
                     {
                         onInvItemTaken?.Invoke(interactiveObject.GetComponent<InvItemID>().ID); // ADD TO INVENTORY LIST
@@ -204,7 +200,7 @@ public class BasicInteract : MonoBehaviour
         Debug.Log("CarryObject called!");
         rbOfCarriedItem = interactiveObject.GetComponent<Rigidbody>();
         rbOfCarriedItem.useGravity = false;
-        rbOfCarriedItem.isKinematic = true;  // kinematic try
+        rbOfCarriedItem.isKinematic = true; 
         carriedItem = interactiveObject;
         carryItemPosition.position = carryPoint.position;
         carryItemPosition.parent = carryPoint;

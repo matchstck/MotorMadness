@@ -35,7 +35,7 @@ public class ObjectiveTracker : MonoBehaviour
         objCanvas.enabled = false;
     }
 
-
+   
     void Update()
     {
         if (Input.GetKeyUp(objectivesKey))
@@ -45,7 +45,7 @@ public class ObjectiveTracker : MonoBehaviour
     }
 
     // ADDS OBJECTIVE TO THE OBJECTIVES LIST, AND UPDATES THE OBJ UI.
-    public void AddObjective(GameObjective obj)
+    public void AddObjective(GameObjective obj) 
     {
         if (Objectives.Count < o_slots.Count) // checks there are free  slots
         {

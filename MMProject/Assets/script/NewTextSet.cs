@@ -34,7 +34,7 @@ public class NewTextSet : MonoBehaviour
         {
             Debug.Log("Text field " + linesDone + " updating");
             if (updateThis.popupTexts[linesDone] == null)
-                updateThis.popupTexts[linesDone] = newPopupTexts[linesDone];
+            updateThis.popupTexts[linesDone] = newPopupTexts[linesDone];
             linesDone++;
         }
 

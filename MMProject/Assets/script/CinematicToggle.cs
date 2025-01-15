@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class CinematicToggle : MonoBehaviour
 {
-    public PlayerController playerControl; // Connects to the control script on the player, not a standard Characcter Controller component.
+    public CharacterController playerControl;
     public Camera cinematicCam;
     public Camera playerCam;
 

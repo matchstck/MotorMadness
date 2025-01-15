@@ -8,30 +8,30 @@ public class Gun : MonoBehaviour
     GameObject bulletSpawnPoint;
     public bool canFire;
     public float rateOfFire;
-
-    public int ammoCount = 40;
-    public int ammoMax = 40;
+    GameObject player;
+    private int ammoCount;
 
     // Start is called before the first frame update
     void Start()
     {
+        player = GameObject.FindGameObjectWithTag("Player");
         bulletSpawnPoint = transform.GetChild(0).gameObject;
         canFire = true;
+        ammoCount = player.gameObject.GetComponent<PlayerInventory>().fireSpellCount;
+        Debug.Log("Ammo " + ammoCount);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (ammoCount <= 0)
-        {
-            canFire = false;
-        }
         fireShot();
     }
 
     public void fireShot()
     {
-        if (Input.GetMouseButtonDown(0) && canFire)
+        ammoCount = player.gameObject.GetComponent<PlayerInventory>().fireSpellCount;
+
+        if (Input.GetMouseButtonDown(0) && canFire && ammoCount > 0)
         {
             StartCoroutine(FireRate());
         }
@@ -40,7 +40,8 @@ public class Gun : MonoBehaviour
         {
             canFire = false;
             GameObject bullet = Instantiate(bulletPrefab, bulletSpawnPoint.transform.position, bulletSpawnPoint.transform.rotation);
-            ammoCount--;
+            //ammoCount--;
+            player.GetComponent<PlayerInventory>().LostSpell();
             yield return new WaitForSeconds(rateOfFire);
             canFire = true;
         }

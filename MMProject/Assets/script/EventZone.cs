@@ -7,8 +7,6 @@ public class EventZone : MonoBehaviour
     private GameObject player;
     private bool isDone;
     public bool isRepeatable;
-    public bool isCheckPointLinked;
-    public int resetUpToCP;
 
     [Header("Events")]
     public GameEvent onTriggerEntered;
@@ -24,29 +22,11 @@ public class EventZone : MonoBehaviour
     {
         if (other.gameObject.CompareTag("Player") && !isDone)
         {
-            isDone = true;
-
-            onTriggerEntered.Raise(this, null);
-        }
-    }
-
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.gameObject.CompareTag("Player") && isDone)
-        {
-            if (isRepeatable)
+            if (!isRepeatable)
             {
-                isDone = false;
+                isDone = true;
             }
-        }
-    }
-
-    public void ResetEventZone(int cpID)
-    {
-        if (isCheckPointLinked && isDone && cpID <= resetUpToCP)
-        {
-            isDone = false;
-            //Debug.Log("Reset EZ on object: " + this.gameObject.name);
+            onTriggerEntered.Raise(this, null);
         }
     }
 }

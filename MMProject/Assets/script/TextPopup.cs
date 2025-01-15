@@ -10,7 +10,7 @@ public class TextPopup : MonoBehaviour
     public string[] popupTexts;
     public KeyCode keyToAdvanceText;
     public int textNumber;
-    public bool fieldIsActive;
+    public bool fieldIsActive; 
     public Text textField;
     public GameObject textFieldObject;
     public bool isRepeatableMessage;

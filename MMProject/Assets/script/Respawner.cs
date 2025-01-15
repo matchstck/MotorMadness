@@ -10,26 +10,24 @@ public class Respawner : MonoBehaviour
     private Transform checkpointLocation;
     public GameObject player;
     private GameObject startingPoint;
-    //private CharacterController charController;
-    private GameObject levelManager;
-    private EnemyManagerZ enemyManager;
-    private ItemManager itemManager;
+    private CharacterController charController;
+    private EnemyManager enemyManager;
+    private GameObject lightChecker;
+    private FPSLightCheck FPSlc;
+
+
     public Material activeMaterial;
     public Material inactiveMaterial;
-
-    public int ammoAtCP; // ammo when the player reached this CP
-    public int scoreAtCP; // score when the player reached this CP
-    public int currentCPID; // The ID number of the current CP
 
     // Start is called before the first frame update
     void Start()
     {
         //DontDestroyOnLoad(this.gameObject);
         player = GameObject.FindGameObjectWithTag("Player");
-        //charController = player.gameObject.GetComponent<CharacterController>();
-        levelManager = GameObject.FindGameObjectWithTag("LevelManager");
-        enemyManager = GetComponent<EnemyManagerZ>();
-        itemManager = GetComponent<ItemManager>();
+        charController = player.gameObject.GetComponent<CharacterController>();
+        enemyManager = GetComponent<EnemyManager>();
+        lightChecker = GameObject.Find("lightChecker");
+        FPSlc = lightChecker.GetComponent<FPSLightCheck>();
 
         startingPoint = GameObject.FindGameObjectWithTag("StartPoint");
         if (currentCheckpoint == null)
@@ -37,59 +35,48 @@ public class Respawner : MonoBehaviour
             startingPoint = GameObject.FindGameObjectWithTag("StartPoint");
             currentCheckpoint = startingPoint;
         }
-
         currentCheckpoint = startingPoint;
-        currentCPID = 0;
 
-        CPList.AddRange(GameObject.FindGameObjectsWithTag("StartPoint"));
         CPList.AddRange(GameObject.FindGameObjectsWithTag("CheckPoint"));
 
-
-
         InitialSpawn();
-
-
-}
-
-    // THIS JUST MOVES THE PLAYER TO THE START POINT, AND ESTABLISHES STARTING SCORE AND AMMO.
-
-    private void InitialSpawn()
-    {            
-        //Debug.Log("St: " + startingPoint);
-        player.gameObject.transform.position = startingPoint.gameObject.transform.position;
-
-        scoreAtCP = levelManager.GetComponent<LevelManager>().score;
-        ammoAtCP = levelManager.GetComponent<LevelManager>().ammo;
-
     }
 
-    // BOTH RESPAWNS THE PLAYER, AND TRIGGERS THE RESET OF THINGS RELATED TO THE CURRENT CP.
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
+
+
+    private void InitialSpawn()
+    {
+        Debug.Log("St: " + startingPoint);
+        player.gameObject.transform.position = startingPoint.gameObject.transform.position;
+    }
+
     public void RespawnPlayer()
     {
-        StopEndlessSpawners();
-        enemyManager.ResetEnemies(currentCPID);
-        enemyManager.ResetEnemyList(currentCPID);
-        itemManager.ResetItems();
-        itemManager.ResetAnims(currentCPID);
-        itemManager.ResetAnimList(currentCPID);
-        ResetCPBasedTriggers();
+        charController.enabled = false;
 
-        // positions the player at the CP
+        enemyManager.ResetEnemies();
+
         checkpointLocation = currentCheckpoint.transform;
         player.transform.position = checkpointLocation.position;
 
-
-        // Sets the ammo and score to be what the player had at CP
-        levelManager.GetComponent<LevelManager>().score = scoreAtCP;
-        levelManager.GetComponent<LevelManager>().ammo = ammoAtCP;
+        if (FPSlc != null)
+        {
+            FPSlc.VisibilityInitialised();
+        }
 
         Invoke("ReactivateController", 0.5f);
 
     }
 
-    // CALLED FROM A CP - THIS UPDATES WHICH CP IS VISIBLE, TAKES STOCK OF SCORE/AMMO, AND CPID.
-    public void UpdateCheckPoints(int ID)
+    public void UpdateCheckPoints()
     {
+        Debug.Log("UpdateCheckPoints was called");
         foreach (GameObject l in CPList)
         {
             if (l.gameObject.GetComponent<CheckPoint>().isCheckpoint == false)
@@ -101,42 +88,33 @@ public class Respawner : MonoBehaviour
                 l.gameObject.GetComponent<MeshRenderer>().material = activeMaterial;
             }
         }
-        currentCPID = ID;
-        scoreAtCP = levelManager.GetComponent<LevelManager>().score;
-        ammoAtCP = levelManager.GetComponent<LevelManager>().ammo;
-
-        enemyManager.ResetEnemyList(currentCPID);
-        itemManager.ResetItemList(currentCPID);
-        itemManager.ResetAnimList(currentCPID);
-
-    }
-
-    private void ResetCPBasedTriggers() // Resets EventZones, ZombieWakeups, 
-    {
-        EventZone[] ezTriggerList = FindObjectsOfType<EventZone>();
-        foreach (EventZone ezTrigger in ezTriggerList)
-        {
-            if (ezTrigger.isCheckPointLinked)
-            {
-                ezTrigger.ResetEventZone(currentCPID);
-            }
-        }
-
-
-
     }
 
     private void ReactivateController()
     {
-        //player.SetActive(true);
+        charController.enabled = true;
     }
 
-    private void StopEndlessSpawners()
+
+    /* OLD CODE FOR CHECKPOINTS WITH LEVEL LOADING
+    private void OnLevelWasLoaded(int level)
     {
-        Spawner[] allSpawners = FindObjectsOfType<Spawner>();
-        foreach (Spawner s in allSpawners)
+        startingPoint = GameObject.FindGameObjectWithTag("StartPoint");
+        if (currentCheckpoint == null)
         {
-            s.CancelSpawning();
+            startingPoint = GameObject.FindGameObjectWithTag("StartPoint");
+            currentCheckpoint = startingPoint;
         }
-    }
+        currentCheckpoint = startingPoint;
+
+        CPList.AddRange(GameObject.FindGameObjectsWithTag("CheckPoint"));
+
+        InitialSpawn();
+
+    }*/
+
+
 }
+
+
+
