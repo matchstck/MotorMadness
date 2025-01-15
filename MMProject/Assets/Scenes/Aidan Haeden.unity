@@ -149,7 +149,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   chController: {fileID: 251607973}
   speedUpDown: 3.2
-  FPSInput: {fileID: 0}
+  FPSInput: {fileID: 251607977}
+--- !u!114 &251607977 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3387978276766116248, guid: 8566ce5677b04ff4e905f92d08e450ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1132186494}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 251607968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2478a3bf613a91547bce01a887b4370c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &519295631
 GameObject:
   m_ObjectHideFlags: 0
@@ -657,3 +669,22 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1980735683 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1946830031628557808, guid: 9244a0b73777c4f4b8c6f4bb7bf59972,
+    type: 3}
+  m_PrefabInstance: {fileID: 554393047}
+  m_PrefabAsset: {fileID: 0}
+--- !u!65 &1980735685
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1980735683}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 3.9286575, y: 13.123597, z: 1}
+  m_Center: {x: -0.07490158, y: 6.0617986, z: 0}
