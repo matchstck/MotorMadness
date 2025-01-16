@@ -443,6 +443,7 @@ MonoBehaviour:
   m_groundMask:
     serializedVersion: 2
     m_Bits: 128
+  m_isGrounded: 0
   m_forward: 119
   m_back: 115
   m_left: 97
