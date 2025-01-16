@@ -19,7 +19,7 @@ public class FPSMovement : MonoBehaviour
     public Transform m_groundCheckPoint;
     public float m_groundDistance = 0.4f;
     public LayerMask m_groundMask;
-    public bool m_isGrounded; 
+    private bool m_isGrounded; 
 
     public KeyCode m_forward;
     public KeyCode m_back;
