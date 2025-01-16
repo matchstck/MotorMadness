@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 // THIS PLAYER MOVE CLASS WILL ALLOW THE GAMEOBJECT TO MOVE BASED ON CHARACTERCONTROLLER
 
@@ -18,7 +19,7 @@ public class FPSMovement : MonoBehaviour
     public Transform m_groundCheckPoint;
     public float m_groundDistance = 0.4f;
     public LayerMask m_groundMask;
-    private bool m_isGrounded; 
+    public bool m_isGrounded; 
 
     public KeyCode m_forward;
     public KeyCode m_back;
@@ -37,6 +38,7 @@ public class FPSMovement : MonoBehaviour
     public float lerpRate;
     public float headRoom;
     private bool crouchSwitched;
+    
 
     // Start is called before the first frame update
     void Awake()
@@ -54,7 +56,9 @@ public class FPSMovement : MonoBehaviour
     // Check if a button is pressed
     void MoveInputCheck()
     {
+    
         float x = Input.GetAxis("Horizontal"); // Gets the x input value for the Gameobject vector
+        
         float z = Input.GetAxis("Vertical"); // Gets the z input value for the Gameobject vector
 
         Vector3 move = Vector3.zero;
@@ -164,4 +168,5 @@ public class FPSMovement : MonoBehaviour
         }
 
     }
+
 }
