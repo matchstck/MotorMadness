@@ -150,6 +150,12 @@ MonoBehaviour:
   chController: {fileID: 251607973}
   speedUpDown: 3.2
   FPSInput: {fileID: 0}
+--- !u!143 &251607980 stripped
+CharacterController:
+  m_CorrespondingSourceObject: {fileID: 3387978276766116249, guid: 8566ce5677b04ff4e905f92d08e450ca,
+    type: 3}
+  m_PrefabInstance: {fileID: 1132186494}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &519295631
 GameObject:
   m_ObjectHideFlags: 0
@@ -444,6 +450,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1191905798101996838, guid: 8566ce5677b04ff4e905f92d08e450ca,
+        type: 3}
+      propertyPath: chController
+      value: 
+      objectReference: {fileID: 251607973}
     - target: {fileID: 1395490512346303194, guid: 8566ce5677b04ff4e905f92d08e450ca,
         type: 3}
       propertyPath: m_Layer
@@ -459,6 +470,11 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 7
       objectReference: {fileID: 0}
+    - target: {fileID: 2041821498561232928, guid: 8566ce5677b04ff4e905f92d08e450ca,
+        type: 3}
+      propertyPath: charController
+      value: 
+      objectReference: {fileID: 251607980}
     - target: {fileID: 3387978275262421155, guid: 8566ce5677b04ff4e905f92d08e450ca,
         type: 3}
       propertyPath: m_Layer

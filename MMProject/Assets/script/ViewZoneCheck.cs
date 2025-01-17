@@ -47,7 +47,7 @@ public class ViewZoneCheck : MonoBehaviour
     {
         if (other.gameObject.tag == "PlayerBody")
         {
-            //Debug.Log("Player is in enemy view zone");
+            Debug.Log("Player is in enemy view zone");
             RayCastCheck();
 
             if (inLOS == true)
@@ -92,7 +92,7 @@ public class ViewZoneCheck : MonoBehaviour
             }
             else
             {
-                //Debug.Log("RAYCAST HIT PLAYERBODY - WOOOOOOOOOOOOOOOOOO!");
+                Debug.Log("RAYCAST HIT PLAYERBODY - WOOOOOOOOOOOOOOOOOO!");
                 if (lightChecker.gameObject.GetComponent<FPSLightCheck>().isVisible == true)
                 {
                     inLOS = true;
