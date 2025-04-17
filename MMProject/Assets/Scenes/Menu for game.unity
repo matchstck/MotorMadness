@@ -315,7 +315,6 @@ GameObject:
   - component: {fileID: 937173307}
   - component: {fileID: 937173306}
   - component: {fileID: 937173309}
-  - component: {fileID: 937173310}
   m_Layer: 5
   m_Name: resume
   m_TagString: Untagged
@@ -387,7 +386,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 937173310}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu1, Assembly-CSharp
         m_MethodName: Resume
         m_Mode: 1
@@ -452,19 +451,6 @@ MonoBehaviour:
   m_EffectColor: {r: 1, g: 0.12143275, b: 0, a: 0.5}
   m_EffectDistance: {x: 1, y: -1}
   m_UseGraphicAlpha: 1
---- !u!114 &937173310
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 937173304}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1278936f3b40e4c852cbdde9bd4170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 937173304}
 --- !u!1 &973204406
 GameObject:
   m_ObjectHideFlags: 0
@@ -746,7 +732,6 @@ GameObject:
   - component: {fileID: 1307217182}
   - component: {fileID: 1307217181}
   - component: {fileID: 1307217180}
-  - component: {fileID: 1307217184}
   m_Layer: 5
   m_Name: Menu
   m_TagString: Untagged
@@ -833,7 +818,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1307217184}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: PauseMenu1, Assembly-CSharp
         m_MethodName: Home
         m_Mode: 1
@@ -883,19 +868,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1307217178}
   m_CullTransparentMesh: 1
---- !u!114 &1307217184
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1307217178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b1278936f3b40e4c852cbdde9bd4170, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1307217178}
 --- !u!1 &1383621821
 GameObject:
   m_ObjectHideFlags: 0
@@ -1160,7 +1132,6 @@ GameObject:
   - component: {fileID: 1428649654}
   - component: {fileID: 1428649653}
   - component: {fileID: 1428649656}
-  - component: {fileID: 1428649657}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -1286,18 +1257,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!114 &1428649657
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1428649652}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0aa6abf8d484393489d2d67d59351f42, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1540128787
 GameObject:
   m_ObjectHideFlags: 0
