@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class Transistion : MonoBehaviour
+public class Transistion2 : MonoBehaviour
 {
 
     void Start()
@@ -13,10 +13,10 @@ public class Transistion : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
+        if (Input.GetMouseButtonDown(0))
+            {
 
-            SceneManager.LoadScene(3);
+            SceneManager.LoadScene(0);
             Cursor.visible = true;
 
             // Optionally, allow the cursor to move freely
