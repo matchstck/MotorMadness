@@ -8,16 +8,13 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/menu.unity
     guid: 7ada01dd3f0cbb04089137c2f6b76e50
-  - enabled: 0
-    path: Assets/Scenes/1SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: d427a49f54bc8d14ebdc4dd2e149367b
   - enabled: 1
-    path: Assets/Scenes/Mission Success.unity
-    guid: a11a47f92be021e409d1fc4dc34a44ac
-  - enabled: 1
     path: Assets/Scenes/Menu for game.unity
     guid: 06a751b1bda50424b9710998050f90c2
+  - enabled: 1
+    path: Assets/Scenes/Mission Success.unity
+    guid: a11a47f92be021e409d1fc4dc34a44ac
   m_configObjects: {}

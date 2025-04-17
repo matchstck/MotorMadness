@@ -17,10 +17,7 @@ public class Transistion1 : MonoBehaviour
             {
 
             SceneManager.LoadScene(1);
-            Cursor.visible = true;
-
-            // Optionally, allow the cursor to move freely
-            Cursor.lockState = CursorLockMode.None;
+            
         }
     }
 
