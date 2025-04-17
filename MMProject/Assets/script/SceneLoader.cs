@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
 {
-    public int level = 0;
+    public int level;
 
     void OnTriggerEnter(Collider other)
     {
