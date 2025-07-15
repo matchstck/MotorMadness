@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
@@ -96,9 +97,6 @@ public class PlayerHealth : MonoBehaviour
 
     void ActualRespawn()
     {
-        playerHealth = playerMaxHealth;
-        playerIsAlive = true;
-        onPlayerResawns.Raise(this, null);
-        respawn.RespawnPlayer();
+          SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
 }
