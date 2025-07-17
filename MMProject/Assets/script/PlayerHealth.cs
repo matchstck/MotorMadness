@@ -28,6 +28,8 @@ public class PlayerHealth : MonoBehaviour
     [Header("Events")]
     public GameEvent onPlayerDies;
     public GameEvent onPlayerResawns;
+    public AudioClip deathSound;
+    public AudioSource audioSource;
 
     // Start is called before the first frame update
     void Start()
@@ -77,6 +79,10 @@ public class PlayerHealth : MonoBehaviour
 
     public void playerDeath()
     {
+        if (deathSound != null && audioSource != null)
+        {
+            audioSource.PlayOneShot(deathSound);
+        }
         // death stuff
         deathPanel.gameObject.SetActive(true);
         deathText.text = "You Died!";
