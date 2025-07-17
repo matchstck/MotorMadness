@@ -4,29 +4,22 @@ using UnityEngine;
 
 public class TriggerAnim : MonoBehaviour
 {
-    public GameObject thingToAnimate;
-    public Animator animToPlay;
-    public string triggerName;
-    public bool playRepeatedly;
-    public bool playedOnce;
+    [SerializeField] private Animator myAnimationcontroller;
 
-
-    [Header("Events")]
-    public GameEvent onEndAnim;
-
-    public void PlayAnim()
+    private void OnTriggerEnter(Collider other)
     {
-        thingToAnimate.GetComponent<Animator>().SetTrigger(triggerName);
-    }
-
-    public void PlayNextAnim()
-    {
-        // call something on a TARGET object.
-        if (!playedOnce || playRepeatedly)
+        if (other.CompareTag("Player"))
         {
-            playedOnce = true;
-            onEndAnim.Raise(this, null);
+            myAnimationcontroller.SetBool("door1.1", true);
         }
-
     }
-}
+
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        { 
+            myAnimationcontroller.SetBool("door1.1", false);
+        }
+    }
+}    
