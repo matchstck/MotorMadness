@@ -11,7 +11,7 @@ public class door22 : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            myAnimationcontroller.SetBool("door22.1", true);
+            myAnimationcontroller.SetBool("door22.2", true);
         }
     }
 }
