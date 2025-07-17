@@ -7,7 +7,7 @@ public class NewScene1 : MonoBehaviour
 {
     void OnTriggerEnter(Collider other)
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(3);
         Cursor.lockState = CursorLockMode.None;
     }
 }
